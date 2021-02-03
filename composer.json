@@ -1,0 +1,18 @@
+{
+    "name": "neutronstars/online-chat",
+    "description": "Project of online chat",
+    "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "NeutronStars",
+            "email": "pro@neutronstars.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "neutronstars/database-sql": "^1.0",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    }
+}
