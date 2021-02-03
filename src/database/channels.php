@@ -3,9 +3,16 @@ use NeutronStars\Database\Database;
 
 function getChannels(Database $database): array
 {
-    return $database->query('channels')
-                    ->select('*')
-                    ->orderBy('created_at', \NeutronStars\Database\Query::ORDER_BY_DESC)
+    return $database->query('channels c')
+                    ->select('c.*', 'IFNULL(m.messages, 0) messages')
+                    ->leftJoinQuery(
+                        (new \NeutronStars\Database\QueryBuilder('messages msg'))
+                                ->select('msg.channel', 'COUNT(*) messages')
+                                ->groupBy('msg.channel'),
+                        'm',
+                        'm.channel=c.id'
+                    )
+                    ->orderBy('c.created_at', \NeutronStars\Database\Query::ORDER_BY_DESC)
                     ->getResults();
 }
 

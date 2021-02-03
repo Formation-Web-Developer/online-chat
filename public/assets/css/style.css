@@ -53,6 +53,17 @@ span.error{
     align-items: center;
 }
 
+#channels .channel .channel-owner{
+    display: inline-block;
+    margin: .5rem 0;
+}
+
+#channels .channel .channel-messages{
+    font-style: italic;
+    color: #5a5a5a;
+    font-size: .9rem;
+}
+
 .section-channels input{
     background-color: white;
 }

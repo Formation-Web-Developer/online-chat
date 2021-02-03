@@ -103,9 +103,13 @@ function buildChannel(channel)
 
     const owner = document.createElement('span');
     owner.classList.add('channel-owner');
-    owner.append(document.createTextNode(channel.author));
+    owner.append(document.createTextNode('Créateur: '+channel.author));
 
-    header.append(name, owner);
+    const count = document.createElement('p');
+    count.classList.add('channel-messages');
+    count.append(document.createTextNode('Nombre de messages: '+channel.messages));
+
+    header.append(name, owner, count);
 
     const footer = document.createElement('div');
     footer.classList.add('channel-footer');
