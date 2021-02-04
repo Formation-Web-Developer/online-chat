@@ -44,6 +44,31 @@ function buildMessage(message)
     }
 
     element.append(document.createTextNode(message.message));
+
+    if(message.data){
+        const embed = document.createElement('div');
+        embed.classList.add('message-embed');
+        const data = JSON.parse(message.data);
+        if(data.url){
+            for(const url of data.url){
+                const href = document.createElement('a');
+                href.href = url;
+                href.classList.add('message-link')
+                href.append(document.createTextNode(url));
+                embed.append(href);
+            }
+        }
+        if(data.images){
+            for(const image of data.images){
+                const img = document.createElement('img');
+                img.src = image;
+                img.classList.add('message-image');
+                embed.append(img);
+            }
+        }
+        element.append(embed);
+    }
+
     channels.append(element);
 }
 

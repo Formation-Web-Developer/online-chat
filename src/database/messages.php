@@ -10,13 +10,14 @@ function getMessages(Database $database, int $channel): array
                     ->getResults();
 }
 
-function createMessage(Database $database, int $channel, string $author, string $message): void
+function createMessage(Database $database, int $channel, string $author, string $message, ?string $data): void
 {
     $database->query('messages')
-             ->insertInto('channel, author, message,created_at', ':channel,:author,:message,NOW()')
+             ->insertInto('channel, author, message, data, created_at', ':channel,:author,:message,:data,NOW()')
              ->setParameters([
                  ':channel' => $channel,
                  ':author'  => $author,
-                 ':message' => $message
+                 ':message' => $message,
+                 ':data'    => $data
              ])->execute();
 }

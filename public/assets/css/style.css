@@ -158,6 +158,23 @@ input[disabled]{
     border-radius: .5rem;
 }
 
+img{
+    display: block;
+    width: 100%;
+}
+
+.message-embed{
+    background-color: rgba(208, 208, 208, 0.5);
+    border-left: 10px solid #000;
+    /*border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;*/
+    border-radius: .5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 400px;
+}
+
 @media (min-width: 720px) {
     .section-channels #pseudo{
         width: 300px;
